@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body > form {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50vw;
+  top: 50vh;
+  margin: -100px 0 0 -100px;
+  padding: 25px 0 0 25px;
+}
+body > form > input {
+  width: 50px;
+  height: 50px;
+  background-color: beige;
+  cursor: pointer;
+}
+input:hover {
+  background-color: lightblue;
+}
+body > div:first-of-type {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+div > form {
+  text-align: center;
+}
+div > form > input {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+p {
+  text-align: center;
+  font-size: large;
+  padding: 0.5rem;
+}
+section#result {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+section > p#result2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  font-size: 2rem;
+}
+section > div.close {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: blue;
+  font-size: 6rem;
+  font-weight: bold;
+  cursor: pointer;
+  animation-name: color_changer;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+}
+section > div.close:hover {
+  text-shadow: 2px 2px 3px black;
+}
+@keyframes color_changer {
+  0% {
+    color: blue;
+  }
+  50% {
+    color: red;
+  }
+  100% {
+    color: blue;
+  }
+}
+@media screen and (max-width: 500px) {
+  div > form > input {
+    width: 80%;
+  }
+}
