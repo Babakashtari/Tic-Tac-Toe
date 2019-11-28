@@ -18,7 +18,7 @@
     <div>
       <form method="POST">
         <?php player_creator() ?>
-        <input type="submit" name="reset" value="Start/reset the game" >
+        <input type="submit" name="reset" value="<?php reset_btn_value() ?>" >
       </form>
     </div>
 

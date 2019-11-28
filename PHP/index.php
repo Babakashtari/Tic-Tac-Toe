@@ -36,6 +36,18 @@ function reset_start()
     }
 }
 
+function reset_btn_value(){
+    if(in_array("", $_SESSION['cells'])){
+        if(in_array("X", $_SESSION['cells']) || in_array("O", $_SESSION['cells'])){
+            echo "Reset the game";
+        }elseif(!(in_array("X", $_SESSION['cells'])) && !(in_array("O", $_SESSION['cells']))){
+            echo "Start the game";
+        }
+    }else{
+         echo "Restart the game";
+    }
+}
+
 function show_winner()
 {
     if (
@@ -58,13 +70,22 @@ function show_winner()
         } elseif ($_SESSION['Player_turn'] === 'X') {
             $_SESSION['winner'] = 'O';
         }
+    }elseif(!(in_array("", $_SESSION['cells']))){
+        $_SESSION['winner'] = "Draw!!!";
     }
 }
 
 function write_winner_name()
 {
     if ($_SESSION['winner'] !== "") {
-        echo "Congradulations, <br>" . $_SESSION['winner'] . " is the winner.";
+        if($_SESSION['players'][0]==="" || $_SESSION['players'][1]===""){
+            echo "Match between 'X' and 'O' is a Draw!!!";
+        }
+        elseif($_SESSION['winner'] === "Draw!!!"){
+            echo "Match between ". $_SESSION['players'][0] . " and " . $_SESSION['players'][1] . " is a Draw!!!";
+        }else{
+            echo "Congradulations, <br>" . $_SESSION['winner'] . " is the winner.";
+        }
     } else {
         return;
     }
